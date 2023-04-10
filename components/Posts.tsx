@@ -4,33 +4,35 @@ import { NewtonsCradle } from '@uiball/loaders'
 
 export default function Posts(){
 
-    const {posts} = useSearchStore()
+    const {posts, loading} = useSearchStore()
 
     return(
         <div className="flex flex-col gap-8 overflow-auto mb-8 w-full items-center mt-8">
             {posts?.length>0 ? (
-            posts.map((post)=>(
-                <div key={post.id} className="bg-reddit-white border border-reddit-black rounded-md w-3/5 p-2">
-                    <div className="flex flex-row justify-between pb-4 items-start pt-2 flex-wrap">
-                        <h2 className="text-2xl sm:text-xl font-semibold w-3/5">{post.title}</h2>
-                        <Link 
-                            href={post.url}
-                            rel="noopener noreferrer" 
-                            target="_blank"
-                            className="bg-reddit-blue text-reddit-white border-none rounded-full px-4 py-1 shadow-black shadow-md hover:opacity-75 hover:cursor-pointer hover:shadow-none"
-                        >
-                                See Post
-                        </Link>
+                posts.map((post)=>(
+                    <div key={post.id} className="bg-reddit-white border border-reddit-black rounded-md w-3/5 p-2">
+                        <div className="flex flex-row justify-between pb-4 items-start pt-2 flex-wrap">
+                            <h2 className="text-2xl sm:text-xl font-semibold w-3/5">{post.title}</h2>
+                            <Link 
+                                href={post.url}
+                                rel="noopener noreferrer" 
+                                target="_blank"
+                                className="bg-reddit-blue text-reddit-white border-none rounded-full px-4 py-1 shadow-black shadow-md hover:opacity-75 hover:cursor-pointer hover:shadow-none"
+                            >
+                                    See Post
+                            </Link>
+                        </div>
+                        <div>
+                            <p className="text-lg py-2">{post.timestamp}</p>
+                        </div>
+                        <p>{post.content}</p>
                     </div>
-                    <div>
-                        <p className="text-lg py-2">{post.timestamp}</p>
-                    </div>
-                    <p>{post.content}</p>
-                </div>
-            ))) : (
-                <NewtonsCradle size={40} color="#fa4603" />
-            )
-            }
+                ))
+            ) : ( loading ? (
+                <NewtonsCradle size={69} color="#fa4603" /> 
+            ) : (
+                <p className="text-lg text-semibold text-reddit-black">Enter a query to find posts.</p>
+            ))}
         </div>
     )
 }
