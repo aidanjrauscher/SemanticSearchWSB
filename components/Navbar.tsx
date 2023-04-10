@@ -4,7 +4,7 @@ import {ArrowRight} from "tabler-icons-react"
 
 export default function Navbar(){
     return (
-        <div className="flex flex-row h-12 border-b border-reddit-black p-2 items-center bg-reddit-white justify-between">
+        <div className="flex flex-row h-fit border-b border-reddit-black p-2 items-center bg-reddit-white justify-between flex-wrap">
             <div className="flex flex-row items-center gap-2">
                 <Image src="/wsb.png" alt="WSB logo" width="40" height="40"/>
                 <h1 className="text-reddit-black font-bold text-2xl sm:text-lg">Wall Street Bets Search</h1>

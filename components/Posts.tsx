@@ -31,7 +31,7 @@ export default function Posts(){
             ) : ( loading ? (
                 <NewtonsCradle size={69} color="#fa4603" /> 
             ) : (
-                <p className="text-lg text-semibold text-reddit-black">Enter a query to find posts.</p>
+                <p className="text-lg text-semibold text-reddit-black pt-4 px-2">Enter a query to find posts.</p>
             ))}
         </div>
     )
