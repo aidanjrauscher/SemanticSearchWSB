@@ -42,7 +42,7 @@ const getPosts = async()=>{
 (async()=>{
   const posts = await getPosts()
   const filteredPosts = posts.filter((post)=>(
-    post.content.trim() != ""
+    (post.content.trim() != "" && post.content.trim()!=".")
   ))
 
   const embeddings = new OpenAIEmbeddings()

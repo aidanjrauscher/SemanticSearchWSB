@@ -8,4 +8,7 @@ Embeddings are stored in Supabase, which provides a function for the semantic se
 
 ###TODO:
 1. Find a way to map company names and stock tickers. 
-2. Upload fresh WSB posts to Supabase to create a current semantic search. 
+2. Finish settings so query embeddings are done with user's API key.
+3. Upload fresh WSB posts to Supabase to create a current semantic search. 
+4. Combine titles with content for embedding?
+5. Text post-processing to fix markdown links and escaping of special characters. 
