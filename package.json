@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "upload": "tsx scripts/uploadPosts.ts"
+    "upload": "tsx scripts/uploadPostsFromCSV.ts"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.15.0",
