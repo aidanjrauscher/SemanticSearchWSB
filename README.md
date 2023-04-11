@@ -7,9 +7,6 @@ The text embeddings are created using LangChain's OpenAIEmbeddings [wrapper](htt
 Embeddings are stored in Supabase, which provides a function for the semantic search based on this [guide](https://supabase.com/blog/openai-embeddings-postgres-vector). 
 
 ### TODO:
-- [ ] Find a way to map company names and stock tickers (do I even need?). 
-- [ ] Finish settings so query embeddings are done with user's API key.
-- [ ] Upload fresh WSB posts to Supabase to create a current semantic search. 
 - [ ] Combine titles with content for embedding?
 - [ ] Text post-processing to fix markdown links and escaping of special characters. 
 - [ ] Alternative to OpenAI for creating embeddings?
@@ -20,3 +17,5 @@ Embeddings are stored in Supabase, which provides a function for the semantic se
 - [ ] Add author to post_embedding table and Post type 
 - [ ] Run sentiment anlaysis on each post and then return collective sentiment for queries
 - [ ] Filter posts based on descriptiveness/usefulness - perhaps using ChatGPT? 
+- [ ] Find a way to map company names and stock tickers (do I even need?). 
+- [ ] Finish settings so query embeddings are done with user's API key.

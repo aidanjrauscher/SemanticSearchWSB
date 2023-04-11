@@ -1,6 +1,7 @@
 import useSearchStore from "@/hooks/useSearchStore"
 import axios from "axios"
 import { Post } from "@/types/global"
+import parseMarkdownLinks from "@/components/ParsedContent"
 
 export default function useSearchPosts(){
 

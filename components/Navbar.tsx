@@ -12,8 +12,8 @@ export default function Navbar(){
             <div>
                 <Link 
                     href="https://www.reddit.com/r/wallstreetbets/" 
-                    className="font-semibold hover:scale-110 hover:opacity-75 flex flex-row gap-1 items-center">
-                        Visit Subreddit
+                    className="font-semibold hover:scale-110 hover:text-reddit-orange flex flex-row gap-1 items-center">
+                        r/wallstreetbets
                         <ArrowRight size="20"/>
                 </Link>
             </div>

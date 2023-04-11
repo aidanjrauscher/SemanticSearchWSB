@@ -12,6 +12,7 @@ module.exports = {
     extend: {
       colors: {
         "reddit-orange": "#fa4603",
+        "reddit-yellow": "#fdce47",
         "reddit-gray-dark": "#dae0e6",
         "reddit-gray-light": "#f6f7f8",
         "reddit-black": "#1c1c1c",
