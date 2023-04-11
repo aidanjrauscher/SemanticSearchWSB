@@ -8,7 +8,8 @@ Embeddings are stored in Supabase, which provides a function for the semantic se
 
 ### TODO:
 - [ ] Combine titles with content for embedding?
-- [x] Text post-processing to fix markdown links and escaping of special characters. 
+- [x] Text post-processing to fix markdown links and escaping of special characters.
+- [ ] Filter out "*Processing img" content  
 - [ ] Alternative to OpenAI for creating embeddings?
 - [ ] Store embeddings somewhere other than supabase - maybe chroma?
 - [x] Fetch new WSB posts from Reddit and upload to supabase via Google Cloud Funcrtion - 
