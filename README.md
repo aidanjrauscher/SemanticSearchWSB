@@ -19,3 +19,4 @@ Embeddings are stored in Supabase, which provides a function for the semantic se
 - [ ] Filter posts based on descriptiveness/usefulness - perhaps using ChatGPT? 
 - [ ] Find a way to map company names and stock tickers (do I even need?). 
 - [ ] Finish settings so query embeddings are done with user's API key.
+- [ ] Update search on query change (not with my api key tho lmao) 
