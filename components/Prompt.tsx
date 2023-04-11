@@ -2,11 +2,13 @@ import { Settings } from "tabler-icons-react"
 import useSearchStore from "@/hooks/useSearchStore"
 import useSearchPosts from "@/hooks/useSearchPosts"
 import { KeyboardEvent } from "react"
+import useSettingsStore from "@/hooks/useSettingsStore"
 
 export default function Prompt(){
 
     const {query, updateQuery} = useSearchStore()
     const handleSearchPosts = useSearchPosts()
+    const {openSettings} = useSettingsStore()
 
     const onEnterKey = (event: KeyboardEvent<HTMLInputElement>)=>{
         if(event.key == "Enter"){
@@ -33,11 +35,11 @@ export default function Prompt(){
             >
                 Find
             </button>
-            {/* <Settings 
-                onClick={()=>{}}
+            <Settings 
+                onClick={openSettings}
                 size="30"
                 className="hover:scale-110 hover:opacity-75 hover:cursor-pointer"
-            /> */}
+            />
         </div>
     )
 }

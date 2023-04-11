@@ -8,12 +8,12 @@ Embeddings are stored in Supabase, which provides a function for the semantic se
 
 ### TODO:
 - [ ] Combine titles with content for embedding?
-- [ ] Text post-processing to fix markdown links and escaping of special characters. 
+- [x] Text post-processing to fix markdown links and escaping of special characters. 
 - [ ] Alternative to OpenAI for creating embeddings?
 - [ ] Store embeddings somewhere other than supabase - maybe chroma?
 - [x] Fetch new WSB posts from Reddit and upload to supabase via Google Cloud Funcrtion - 
 - [ ] Create embeddings for new posts fetched via Google Cloud Function 
-- [ ] Allow filtering by time 
+- [x] Allow filtering by time 
 - [ ] Add author to post_embedding table and Post type 
 - [ ] Run sentiment anlaysis on each post and then return collective sentiment for queries
 - [ ] Filter posts based on descriptiveness/usefulness - perhaps using ChatGPT? 

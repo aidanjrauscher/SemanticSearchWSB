@@ -1,6 +1,5 @@
 import Head from 'next/head'
 import { Inter } from 'next/font/google'
-import Footer from '@/components/Footer'
 import Navbar from '@/components/Navbar'
 import SettingsModal from '@/components/SettingsModal'
 import Prompt from '@/components/Prompt'
@@ -23,7 +22,6 @@ export default function Home() {
           <Navbar/>
           <Prompt/>
           <Posts />
-          {/* <Footer/> */}
         </div>
       </main>
     </>

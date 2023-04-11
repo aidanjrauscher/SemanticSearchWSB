@@ -15,7 +15,7 @@ export default function ParsedContent({text}: ParsedContentProps){
   const result: React.ReactNode[] = [];
   // iterate over the array, rendering each item as a string or a Next.js link
   for (let i = 0; i < parts.length; i++) {
-    const part = parts[i];
+    let part = parts[i];
     if (matchRegex.test(part)) {
       // if the part matches the link regex, render it as a Next.js link
       const match = matchRegex.exec(part) || ""
@@ -34,7 +34,9 @@ export default function ParsedContent({text}: ParsedContentProps){
       );
       linkRegex.lastIndex = 0;
     } else {
-      // otherwise, render it as plain text
+      // remove zero-width space character code
+      part = part.replace(/&#x200B;/g, "")
+      //remo
       result.push(part);
     }
   }
