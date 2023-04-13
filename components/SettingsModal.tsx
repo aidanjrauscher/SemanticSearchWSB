@@ -16,6 +16,10 @@ export default function SettingsModal(){
         updateEndTimestamp("")
     }
 
+    const handleSave = ()=>{
+        closeSettings()
+    }
+
     return (
         <div 
             className={`${showSettings ? "display" : "hidden"} 
@@ -25,7 +29,7 @@ export default function SettingsModal(){
                 <h1 className="text-reddit-black font-semibold text-xl md:text-3xl">Settings</h1>
                 <hr className="border-reddit-black border-1 w-10/12 rounded-full"></hr>
                 <div className="flex flex-col wrap gap-1 p-2">
-                    <h3 className="text-reddit-black font-semibold text-md md:text-xl">Start Timestamp</h3>
+                    <h3 className="text-reddit-black font-semibold text-md md:text-xl">From</h3>
                     <input 
                         value={startTimestamp}
                         onChange={(e)=>updateStartTimestamp(e.target.value)}
@@ -34,7 +38,7 @@ export default function SettingsModal(){
                     />
                 </div>
                 <div className="flex flex-col wrap gap-1 p-2">
-                    <h3 className="text-reddit-black font-semibold text-md md:text-xl">End Timestamp</h3>
+                    <h3 className="text-reddit-black font-semibold text-md md:text-xl">To</h3>
                     <input 
                         value={endTimestamp}
                         onChange={(e)=>updateEndTimestamp(e.target.value)}

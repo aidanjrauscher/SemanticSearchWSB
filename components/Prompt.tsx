@@ -38,7 +38,7 @@ export default function Prompt(){
             <Settings 
                 onClick={openSettings}
                 size="30"
-                className="hover:scale-110 hover:opacity-75 hover:cursor-pointer"
+                className="hover:scale-110 hover:opacity-75 hover:cursor-pointer hover:rotate-12"
             />
         </div>
     )
