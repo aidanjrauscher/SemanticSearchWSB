@@ -4,6 +4,7 @@ export type Post = {
     id: string;
     url: string;
     title: string;
+    author: string;
     content: string; 
     createdat: StringLiteral;
     timestamp: string;
@@ -13,6 +14,7 @@ export type PostEmbedding = {
     id: string;
     url: string;
     title: string;
+    author: string;
     content: string; 
     createdat: StringLiteral;
     timestamp: string;

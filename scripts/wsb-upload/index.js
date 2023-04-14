@@ -1,5 +1,4 @@
 import fetch from "node-fetch"
-import format from "node.date-time"
 import {createClient} from "@supabase/supabase-js"
 
 export function fetchPosts(req, res){

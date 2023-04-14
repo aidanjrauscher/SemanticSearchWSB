@@ -35,7 +35,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
     const queryEmbedding = await embeddings.embedQuery(query)
     const { data: posts } = await supabase.rpc('match_posts', {
       query_embedding: queryEmbedding,
-      similarity_threshold: 0.8, // Choose an appropriate threshold for your data
+      similarity_threshold: 0.8,
     })
       .gte("timestamp", startTimestamp)
       .lte("timestamp", endTimestamp)
