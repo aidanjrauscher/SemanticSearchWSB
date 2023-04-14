@@ -38,7 +38,7 @@ export default function ParsedContent({text}: ParsedContentProps){
     } else {
       // remove zero-width space character code
       part = part.replace(/&#x200B;/g, "")
-      result.push(<ReactMarkdown children={part} />);
+      result.push(<ReactMarkdown>{part}</ReactMarkdown>);
     }
   }
   // return the result as a single React element
