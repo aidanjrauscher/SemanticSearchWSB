@@ -1,7 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import supabase from '@/lib/supabase'
 import { OpenAIEmbeddings } from "langchain/embeddings"
-import { start } from 'repl'
 
 
 type Data = {
@@ -35,7 +34,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
     const queryEmbedding = await embeddings.embedQuery(query)
     const { data: posts } = await supabase.rpc('match_posts', {
       query_embedding: queryEmbedding,
-      similarity_threshold: 0.8, // Choose an appropriate threshold for your data
+      similarity_threshold: 0.75, // Choose an appropriate threshold for your data
     })
       .gte("timestamp", startTimestamp)
       .lte("timestamp", endTimestamp)

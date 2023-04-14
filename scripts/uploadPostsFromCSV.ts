@@ -27,6 +27,7 @@ const getPosts = async()=>{
             id: row.id,
             url: row.url,
             title: row.title,
+            author: "",
             content: row.body,
             createdat: row.created,
             timestamp: row.timestamp,

@@ -1,8 +1,8 @@
 import useSearchStore from "@/hooks/useSearchStore"
 import Link from "next/link"
 import { NewtonsCradle } from '@uiball/loaders'
-import parseMarkdownLinks from "@/components/ParsedContent"
 import ParsedContent from "@/components/ParsedContent"
+
 
 export default function Posts(){
 
@@ -28,6 +28,7 @@ export default function Posts(){
                             <p className="text-lg py-2">{post.timestamp}</p>
                         </div>
                         <ParsedContent text={post.content}/>
+                        {/* <ReactMarkdown className="break-words" children={post.content}/> */}
                     </div>
                 ))
             ) : ( loading ? (

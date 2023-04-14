@@ -1,5 +1,7 @@
 import Link from "next/link";
 import React from "react";
+import ReactMarkdown from 'react-markdown'
+
 
 
 interface ParsedContentProps {
@@ -36,10 +38,9 @@ export default function ParsedContent({text}: ParsedContentProps){
     } else {
       // remove zero-width space character code
       part = part.replace(/&#x200B;/g, "")
-      //remo
-      result.push(part);
+      result.push(<ReactMarkdown children={part} />);
     }
   }
   // return the result as a single React element
-  return <p>{result}</p>;
+  return <p className="break-words">{result}</p>;
 }
