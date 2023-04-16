@@ -2,8 +2,9 @@ import fs from "fs"
 import csv from "csv-parser"
 import path from "path"
 import { Post, PostEmbedding } from "@/types/global"
-import { ChromaClient, OpenAIEmbeddingFunction} from "chromadb"
+import chroma_collection from "@/lib/chroma"
 import * as dotenv from 'dotenv' 
+import { Collection } from "chromadb"
 dotenv.config()
 
 
@@ -40,42 +41,29 @@ const getPosts = async()=>{
 }
 
 (async()=>{
-  const client = new ChromaClient(process.env.CHROMA_URL);  
-  const collections = await client.listCollections()
-  const embedder = new OpenAIEmbeddingFunction(process.env.OPENAI_API_KEY || "")
-  let collection
-  console.log(collections)
-  if(collections.includes("wsb-search")){
-    collection = await client.createCollection("wsb-search", {}, embedder)
-  }
-  else{
-    collection = await client.getCollection("wsb-search", embedder)
-  }
-  console.log(collection)
-
+  const collection = await chroma_collection("wsb-search")
   const posts = await getPosts()
   let filteredPosts = posts.filter((post)=>(
     (post.content.trim() != "" && post.content.trim()!=".")
   ))
-
-  filteredPosts = filteredPosts.slice(0,2001)
-  const ids = filteredPosts.map((post)=>post.id)
-  const contents = filteredPosts.map((post)=>post.content)
-  const metadatas = filteredPosts.map((post)=>({
-    url: post.url,
-    title: post.title,
-    author: "",
-    createdat: post.createdat,
-    timestamp: post.timestamp,
-  }))
-  const postEmbeddings: PostEmbedding[] = []
-  await collection.add(
-      ids,
-      undefined,
-      metadatas,
-      contents
-  )
-
+  for (let i=0; i<20; i++){
+    const subsetFilteredPosts = filteredPosts.slice(100*i, 100*(i+1))
+    const ids = subsetFilteredPosts.map((post)=>post.id)
+    const metadatas = subsetFilteredPosts.map((post)=>({
+      url: post.url,
+      title: post.title,
+      author: "",
+      createdat: Number(post.createdat),
+      timestamp: post.timestamp,
+    }))
+    const contents = subsetFilteredPosts.map((post)=>post.content)
+    await collection.add(
+        ids,
+        undefined,
+        metadatas,
+        contents
+    )
+  }
   const count = await collection.count()
   console.log(count)
 })()

@@ -7,7 +7,7 @@ import { useEffect } from "react"
 export default function useSearchPosts(){
 
     const {query, updatePosts, startLoading, endLoading} = useSearchStore()
-    const {startTimestamp, endTimestamp} = useSettingsStore()
+    const {startTimestamp, endTimestamp, showSettings} = useSettingsStore()
 
     const handleSearchPosts = async()=>{
         if(!query){
@@ -32,7 +32,7 @@ export default function useSearchPosts(){
         if(query){
             handleSearchPosts();
         }
-    }, [startTimestamp, endTimestamp]);
+    }, [showSettings]);
 
     return handleSearchPosts
 }
